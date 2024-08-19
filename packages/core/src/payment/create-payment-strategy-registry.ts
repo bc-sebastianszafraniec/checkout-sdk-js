@@ -60,7 +60,6 @@ import { CBAMPGSPaymentStrategy, CBAMPGSScriptLoader } from './strategies/cba-mp
 import { ChasePayPaymentStrategy, ChasePayScriptLoader } from './strategies/chasepay';
 import { ConvergePaymentStrategy } from './strategies/converge';
 import { MasterpassPaymentStrategy, MasterpassScriptLoader } from './strategies/masterpass';
-import { MonerisPaymentStrategy } from './strategies/moneris';
 import { OpyPaymentStrategy, OpyScriptLoader } from './strategies/opy';
 import { PaypalExpressPaymentStrategy, PaypalScriptLoader } from './strategies/paypal';
 import {
@@ -277,18 +276,6 @@ export default function createPaymentStrategyRegistry(
                 paymentActionCreator,
                 new MasterpassScriptLoader(scriptLoader),
                 locale,
-            ),
-    );
-
-    registry.register(
-        PaymentStrategyType.MONERIS,
-        () =>
-            new MonerisPaymentStrategy(
-                hostedFormFactory,
-                store,
-                orderActionCreator,
-                paymentActionCreator,
-                storeCreditActionCreator,
             ),
     );
 
